@@ -1,0 +1,116 @@
+{% extends "master.html" %}
+
+{% block title %}{{Home}}{% endblock %}
+
+{% block content %}
+<br>
+
+<form action="result" method="GET">
+    {% csrf_token %} 
+    <center>
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label for="martial" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Marital Status:</label>
+            <select id="martial" name="martial" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="single">single</option>
+                <option value="married">married</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="house_O" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">House Ownership:</label>
+            <select id="house_O" name="house_O" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="owned">owned</option>
+                <option value="rented">rented</option>
+                <option value="norent_noown">norent_noown</option>
+            </select>
+        </div>
+        <div>
+            <label for="car_O" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Car Ownership:</label>
+            <select id="car_O" name="car_O" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+        </div>  
+        <div>
+            <label for="profession" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Profession:</label>
+            <select  id="profession" name="profession" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+   				<option value="Air_traffic_controller">Air_traffic_controller</option>
+   				<option value="Analyst">Analyst</option>
+    			<option value="Architect">Architect</option>
+   				<option value="Army_officer">Army officer</option>
+   				<option value="Artist">Artist</option>
+   				<option value="Aviator">Aviator</option>
+    			<option value="Biomedical_Engineer">Biomedical_Engineer</option>
+    			<option value="Chartered_Accountant">Chartered_Accountant</option>
+    			<option value="Chef">Chef</option>
+    			<option value="Chemical_engineer">Chemical_engineer</option>
+    			<option value="Civil_engineer">Civil_engineer</option>
+   				<option value="Civil_servant">Civil_servant</option>
+    			<option value="Comedian">Comedian</option>
+    			<option value="Computer_hardware_engineer">Computer_hardware_engineer</option>
+    			<option value="Computer_operator">Computer_operator</option>
+   				<option value="Consultant">Consultant</option>
+   				<option value="Dentist">Dentist</option>
+    			<option value="Design_Engineer">Design_Engineer</option>
+    			<option value="Designer">Designer</option>
+    			<option value="Drafter">Drafter</option>
+   				<option value="Economist">Economist</option>
+    			<option value="Engineer">Engineer</option>
+    			<option value="Fashion_Designer">Fashion_Designer</option>
+   				<option value="Financial_Analyst">Financial_Analyst</option>
+   				<option value="Firefighter">Firefighter</option>
+				<option value="Flight_attendant">Flight_attendant</option>
+				<option value="Geologist">Geologist</option>
+				<option value="Graphic_Designer">Graphic_Designer</option>
+				<option value="Hotel_Manager">Hotel_Manager</option>
+				<option value="Industrial_Engineer">Industrial_Engineer</option>
+				<option value="Lawyer">Lawyer</option>
+				<option value="Librarian">Librarian</option>
+				<option value="Magistrate">Magistrate</option>
+				<option value="Mechanical_engineer">Mechanical_engineer</option>
+				<option value="Microbiologist">Microbiologist</option>
+				<option value="Official">Official</option>
+				<option value="Petroleum_Engineer">Petroleum_Engineer</option>
+				<option value="Physician">Physician</option>
+				<option value="Police_officer">Police_officer</option>
+				<option value="Politician">Politician</option>
+				<option value="Psychologist">Psychologist</option>
+				<option value="Scientist">Scientist</option>
+				<option value="Secretary">Secretary</option>
+				<option value="Software_Developer">Software_Developer</option>
+				<option value="Statistician">Statistician</option>
+				<option value="Surgeon">Surgeon</option>
+				<option value="Surveyor">Surveyor</option>
+				<option value="Technical_writer">Technical_writer</option>
+				<option value="Technician">Technician</option>
+				<option value="Technology_specialist">Technology_specialist</option>
+				<option value="Web_designer">Web_designer</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="current_jy" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Years of experience in current job:</label>
+            <input type="number" id="current_jy" name="current_jy" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="5" required>
+        </div>
+        <div>
+            <label for="current_hy" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Years at current residence:</label>
+            <input type="number" id="current_hy" name="current_hy" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="5" required>
+        </div>
+        <div>
+            <label for="income" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Income:</label>
+            <input type="number" id="income" name="income" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Annual Income(Rs)" required>
+        </div>
+        <div>
+            <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Age:</label>
+            <input type="number" id="age" name="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Above 21" required>
+        </div>
+    </div>
+
+    <button type="submit"  class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Predict</button>
+<center>
+</form>
+
+
+
+{% endblock %}
